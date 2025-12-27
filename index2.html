@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>I'm Sorry</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #ffe6e6, #fff0f5);
+      text-align: center;
+      color: #333;
+      overflow: hidden;
+    }
+    .container {
+      margin-top: 80px;
+      position: relative;
+      z-index: 1;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #d46a6a;
+      transition: all 1s ease;
+    }
+    p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      transition: all 1s ease;
+    }
+    #loveMessage {
+      font-size: 2em;
+      color: #ff4d88;
+      margin-top: 30px;
+      display: none;
+      animation: fadeIn 2s ease-in-out;
+    }
+    img {
+      width: 220px;
+      transition: opacity 0.8s ease;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 1em;
+      background: #ff7f7f;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #e06666;
+    }
+    .heart {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-image: url('heart.png'); /* Add your heart sticker here */
+      background-size: cover;
+      animation: float 6s infinite ease-in-out;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      50% { transform: translateY(-100px) rotate(20deg); opacity: 0.6; }
+      100% { transform: translateY(-200px) rotate(-20deg); opacity: 0; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="title">I'm Sorry 💔</h1>
+    <p id="message">I never want to see you sad. You mean the world to me.</p>
+    <img id="bella" src="17180602.jpg" alt="Bella crying">
+    <br><br>
+    <button id="forgiveBtn" onclick="forgiveMe()">Click to forgive me</button>
+    <div id="loveMessage">I Love You ❤️<br><span style="font-size:1.2em;color:#d46a6a;">Forever yours, Rifat 💕</span></div>
+  </div>
+
+  <!-- Floating hearts -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.top = window.innerHeight + 'px';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 800);
+
+    function forgiveMe() {
+      document.getElementById("bella").src = "17180601.jpg"; // smiling Bella
+      document.getElementById("title").innerText = "Thank You ❤️";
+      document.getElementById("message").innerText = "I’ll do better, always.";
+      document.getElementById("loveMessage").style.display = "block";
+      document.getElementById("forgiveBtn").style.display = "none"; // hide button after click
+    }
+  </script>
+</body>
+</html>
